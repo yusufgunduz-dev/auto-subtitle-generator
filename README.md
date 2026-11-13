@@ -1,78 +1,85 @@
-# 🎬 Auto Subtitle Generator & Burner Pro
+<div align="center">
 
-Bu proje, OpenAI'ın **Whisper** modelini kullanarak videolarınız için otomatik olarak yüksek doğrulukta Türkçe altyazı (.srt) oluşturur ve **FFmpeg** kullanarak bu altyazıyı videoya gömer (Hardsub).
+<img src="assets/banner.svg" alt="Auto Subtitle Generator" width="100%" />
 
-Hem **Komut Satırı (CLI)** hem de **Modern Grafik Arayüz (GUI)** ile kullanılabilir.
+# Auto Subtitle Generator
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![Whisper](https://img.shields.io/badge/OpenAI-Whisper-green)
-![FFmpeg](https://img.shields.io/badge/Tool-FFmpeg-red)
-![GUI](https://img.shields.io/badge/Interface-CustomTkinter-purple)
+**OpenAI Whisper ile Türkçe altyazı üretir, FFmpeg ile videoya gömer.**
 
-## 🚀 Özellikler
+![Python](https://img.shields.io/badge/Python-3776ab?style=flat-square&logo=python&logoColor=white)
+![Whisper](https://img.shields.io/badge/OpenAI-Whisper-10a37f?style=flat-square)
+![FFmpeg](https://img.shields.io/badge/FFmpeg-007808?style=flat-square&logo=ffmpeg&logoColor=white)
+![CustomTkinter](https://img.shields.io/badge/CustomTkinter-1f6feb?style=flat-square)
+![License](https://img.shields.io/badge/Lisans-MIT-green?style=flat-square)
 
-* **Modern Arayüz (GUI):** Kullanıcı dostu, Dark Mode destekli grafik arayüz ile kolay dosya seçimi.
-* **Yüksek Doğruluk:** OpenAI Whisper 'medium' modeli ile gelişmiş Türkçe transkripsiyon.
-* **Otomatik Senkronizasyon:** Konuşma zamanlamalarını milisaniye hassasiyetinde algılar.
-* **Hardsub Desteği:** Altyazıyı videonun üzerine kalıcı olarak yazar (Gömülü Altyazı).
-* **GPU Hızlandırma:** NVIDIA ekran kartınız varsa (CUDA) işlemleri CPU'ya göre çok daha hızlı yapar.
-* **Akıllı Threading:** İşlem yapılırken arayüz donmaz, logları anlık takip edebilirsiniz.
+</div>
 
-## 🛠️ Gereksinimler
+## Ne Yapar?
 
-Bu projeyi çalıştırmak için sisteminizde aşağıdakilerin yüklü olması gerekir:
+Bir videoyu seçersiniz; araç konuşmayı Whisper ile metne çevirip zaman damgalı bir `.srt` dosyası üretir ve FFmpeg ile bu altyazıyı videoya kalıcı olarak gömer (hardsub). Hem grafik arayüzle hem de komut satırıyla çalışır.
 
-1.  **Python 3.10 veya üzeri**
-2.  **FFmpeg** (Sistem yoluna/PATH'e eklenmiş olmalıdır).
-3.  **(Önerilen)** NVIDIA Ekran Kartı + CUDA Toolkit (Performans için).
+## Özellikler
 
-## 📦 Kurulum
+- **Türkçe konuşma tanıma:** Whisper, Türkçe (`tr`) dil modunda çalışır
+- **Model seçimi:** Arayüzden `base`, `small`, `medium` veya `large` (varsayılan `medium`); büyük modeller daha doğru, ancak daha fazla bellek ister
+- **GPU desteği:** CUDA destekli ekran kartı varsa otomatik kullanılır, yoksa işlemci
+- **Çıktılar:** `subtitle.srt` ve altyazısı gömülü `video_with_subs.mp4`
+- **Arayüz:** CustomTkinter ile koyu temalı, işlem günlüğü gösteren masaüstü arayüz
+- **Komut satırı modu:** `main.py` içindeki ayarlarla betik olarak çalıştırma
 
-1.  Repoyu klonlayın:
-    ```bash
-    git clone https://github.com/Gunduzy12/auto-subtitle-generator.git
-    cd auto-subtitle-generator
-    ```
+## Gereksinimler
 
-2.  Gerekli kütüphaneleri yükleyin:
-    ```bash
-    pip install -r requirements.txt
-    ```
+- Python 3
+- [FFmpeg](https://ffmpeg.org/download.html): `PATH` içinde erişilebilir olmalı
+- İsteğe bağlı: CUDA destekli ekran kartı (işlemi hızlandırır)
 
-    *Not: Eğer `customtkinter` hatası alırsanız manuel olarak `pip install customtkinter` komutunu çalıştırın.*
+## Kurulum
 
-## ⚙️ Kullanım
+```bash
+git clone https://github.com/yusufgunduz-dev/auto-subtitle-generator.git
+cd auto-subtitle-generator
 
-Projenin iki farklı kullanım modu vardır:
+python -m venv venv
+venv\Scripts\activate        # macOS ve Linux: source venv/bin/activate
 
-### 1. Grafik Arayüz ile Kullanım (Önerilen)
-Modern arayüzü açmak için terminale şu komutu yazın:
+pip install -r requirements.txt
+```
+
+## Kullanım
+
+**Grafik arayüz**
 
 ```bash
 python gui.py
 ```
-Açılan pencereden "Video Seç" butonuna tıklayın.
 
-Model boyutunu seçin (Varsayılan: medium en dengeli olanıdır).
+Videoyu seçin, model boyutunu belirleyin ve **İŞLEMİ BAŞLAT** düğmesine basın.
 
-"İŞLEMİ BAŞLAT" butonuna basın ve arkanıza yaslanın.
+**Komut satırı**
 
-İşlem bitince video_with_subs.mp4 dosyası klasörde hazır olacaktır.
+`main.py` dosyasının başındaki ayarları düzenleyin:
 
-### 2. Komut Satırı ile Kullanım (CLI)
-Arayüz kullanmadan, kod üzerinden ayar yaparak kullanmak isterseniz:
+```python
+INPUT_VIDEO = "video.mp4"
+MODEL_SIZE  = "medium"   # tiny, base, small, medium, large
+```
 
-main.py dosyasını açıp INPUT_VIDEO kısmına video adını yazın.
-
-Scripti çalıştırın:
-
-Bash
 ```bash
 python main.py
 ```
-## 🤝 Katkıda Bulunma
-Hataları bildirmek veya özellik eklemek için "Issue" açabilir veya "Pull Request" gönderebilirsiniz.
 
-## 📄 Lisans
-Bu proje MIT License altında lisanslanmıştır.
+## Proje Yapısı
+
+```
+gui.py              Grafik arayüz
+main.py             Komut satırı betiği
+requirements.txt    openai-whisper, torch, numpy, customtkinter
+```
+
+## Lisans
+
+[MIT](LICENSE)
+
 ---
+
+<sub>Geliştirici: [Yusuf Gündüz](https://github.com/yusufgunduz-dev) · [Revolasoft](https://revolasoft.com)</sub>

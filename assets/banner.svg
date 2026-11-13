@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="340" viewBox="0 0 1280 340" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" role="img" aria-label="Auto Subtitle Generator">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#04241f"/><stop offset="1" stop-color="#0a4a42"/></linearGradient>
+    <radialGradient id="glow" cx="0.82" cy="0.25" r="0.6"><stop offset="0" stop-color="#5eead4" stop-opacity="0.45"/><stop offset="1" stop-color="#5eead4" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.045"/></pattern>
+    <linearGradient id="bar" x1="0" x2="1"><stop offset="0" stop-color="#5eead4"/><stop offset="1" stop-color="#ffffff" stop-opacity="0.2"/></linearGradient>
+  </defs>
+  <rect width="1280" height="340" rx="22" fill="url(#bg)"/>
+  <rect width="1280" height="340" rx="22" fill="url(#grid)"/>
+  <rect width="1280" height="340" rx="22" fill="url(#glow)"/>
+  <rect x="64" y="68" width="72" height="6" rx="3" fill="url(#bar)"/>
+  <text x="64" y="102" font-size="18" font-weight="700" letter-spacing="3" fill="#5eead4">YAPAY ZEKA ARACI</text>
+  <text x="64" y="166" font-size="56" font-weight="800" fill="#ffffff">Auto Subtitle Generator</text>
+  <text x="64" y="206" font-size="26" fill="#cbd5e1">Whisper ile Türkçe altyazı üretimi ve FFmpeg ile videoya gömme.</text>
+  <g transform="translate(64 254)"><rect width="95.19999999999999" height="38" rx="19" fill="#ffffff" fill-opacity="0.07" stroke="#5eead4" stroke-opacity="0.55"/><text x="47.599999999999994" y="25" text-anchor="middle" font-size="17" font-weight="600" fill="#e8eefc">Python</text></g><g transform="translate(171.2 254)"><rect width="105.39999999999999" height="38" rx="19" fill="#ffffff" fill-opacity="0.07" stroke="#5eead4" stroke-opacity="0.55"/><text x="52.699999999999996" y="25" text-anchor="middle" font-size="17" font-weight="600" fill="#e8eefc">Whisper</text></g><g transform="translate(288.59999999999997 254)"><rect width="95.19999999999999" height="38" rx="19" fill="#ffffff" fill-opacity="0.07" stroke="#5eead4" stroke-opacity="0.55"/><text x="47.599999999999994" y="25" text-anchor="middle" font-size="17" font-weight="600" fill="#e8eefc">FFmpeg</text></g><g transform="translate(395.79999999999995 254)"><rect width="166.6" height="38" rx="19" fill="#ffffff" fill-opacity="0.07" stroke="#5eead4" stroke-opacity="0.55"/><text x="83.3" y="25" text-anchor="middle" font-size="17" font-weight="600" fill="#e8eefc">CustomTkinter</text></g>
+  <g>
+  <rect x="886" y="75" width="330" height="190" rx="16" fill="#0b1020" fill-opacity="0.85" stroke="#ffffff" stroke-opacity="0.12"/>
+  <circle cx="910" cy="99" r="6" fill="#ff5f57"/><circle cx="930" cy="99" r="6" fill="#febc2e"/><circle cx="950" cy="99" r="6" fill="#28c840"/>
+  <line x1="886" y1="119" x2="1216" y2="119" stroke="#ffffff" stroke-opacity="0.08"/>
+  <rect x="916" y="137" width="120" height="10" rx="5" fill="#5eead4" fill-opacity="0.85" transform="translate(0 0)"/><rect x="916" y="163" width="200" height="10" rx="5" fill="#7dd3fc" fill-opacity="0.7" transform="translate(24 0)"/><rect x="916" y="189" width="160" height="10" rx="5" fill="#c4b5fd" fill-opacity="0.7" transform="translate(24 0)"/><rect x="916" y="215" width="90" height="10" rx="5" fill="#86efac" fill-opacity="0.7" transform="translate(48 0)"/><rect x="916" y="241" width="180" height="10" rx="5" fill="#5eead4" fill-opacity="0.7" transform="translate(24 0)"/><rect x="916" y="267" width="70" height="10" rx="5" fill="#fcd34d" fill-opacity="0.7" transform="translate(0 0)"/><rect x="916" y="293" width="140" height="10" rx="5" fill="#7dd3fc" fill-opacity="0.6" transform="translate(24 0)"/>
+</g>
+</svg>
